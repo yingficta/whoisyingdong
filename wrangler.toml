@@ -1,6 +1,11 @@
 name = "whoisyingdong"
 compatibility_date = "2025-01-01"
 
+routes = [
+  { pattern = "whoisyingdong.me", custom_domain = true },
+  { pattern = "www.whoisyingdong.me", custom_domain = true }
+]
+
 [build]
 command = "npm run build"
 
