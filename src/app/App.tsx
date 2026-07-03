@@ -1,7 +1,22 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import profileImg from "../imports/profile_anime.png";
-import { User, FolderOpen, Twitter, Linkedin, ArrowUpRight, Menu, X } from "lucide-react";
+import cooking1 from "../imports/IMG_9652.JPG";
+import cooking2 from "../imports/IMG_9657.JPG";
+import { User, FolderOpen, Twitter, Linkedin, ArrowUpRight, Menu, X, ArrowLeft } from "lucide-react";
+
+const GALLERY_PHOTOS = [
+  {
+    url: cooking1,
+    caption: "2026",
+    description: "Hotpot in the garden. Wild-Foraged Mushrooms in Chicken Broth.",
+  },
+  {
+    url: cooking2,
+    caption: "2026",
+    description: "Glazing buns on an outdoor griddle.",
+  },
+];
 
 const NAV_LINKS = [
   { label: "About", icon: User, id: "about" },
@@ -37,7 +52,7 @@ const PROJECT_SECTIONS = [
     heading: "Eater",
     subheading: "Food is my religion.",
     items: [
-      { image: "https://images.unsplash.com/photo-1752652013282-c62b75bbcbdc?w=120&h=120&fit=crop&auto=format", title: "Photographs of People Cooking", description: "An ongoing project documenting the quiet intimacy of people in their kitchens.", url: "#" },
+      { image: "https://images.unsplash.com/photo-1752652013282-c62b75bbcbdc?w=120&h=120&fit=crop&auto=format", title: "Photographs of People Cooking", description: "An ongoing project documenting the quiet intimacy of people in their kitchens.", url: "gallery" },
     ],
   },
 ];
@@ -45,11 +60,13 @@ const PROJECT_SECTIONS = [
 export default function App() {
   const [activeSection, setActiveSection] = useState("About");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [view, setView] = useState<"main" | "gallery">("main");
 
   const scrollToSection = (label: string, id: string) => {
     setActiveSection(label);
     setMenuOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setView("main");
+    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }), 50);
   };
 
   useEffect(() => {
@@ -120,17 +137,17 @@ export default function App() {
         {/* Sidebar */}
         <aside
           className="flex flex-col flex-shrink-0"
-          style={{ width: "300px", position: "sticky", top: 0, height: "100vh" }}
+          style={{ width: "300px", position: "sticky", top: 0, height: "100vh", paddingTop: "48px" }}
         >
           <button
             onClick={() => scrollToSection("About", "about")}
             className="block overflow-hidden w-full"
-            style={{ aspectRatio: "1/1", padding: "32px" }}
+            style={{ padding: "0 48px 32px", flexShrink: 0 }}
           >
-            <img src={profileImg} alt="Ying Dong" className="w-full h-full object-cover" style={{ borderRadius: "4px" }} />
+            <img src={profileImg} alt="Ying Dong" className="w-full object-cover" style={{ borderRadius: "6px", display: "block" }} />
           </button>
 
-          <nav className="flex flex-col gap-1 px-6">
+          <nav className="flex flex-col gap-1" style={{ paddingLeft: "48px" }}>
             {NAV_LINKS.map(({ label, icon: Icon, id }) => (
               <button
                 key={label}
@@ -146,7 +163,7 @@ export default function App() {
             ))}
           </nav>
 
-          <div className="flex gap-4 px-8 pb-8 mt-auto">
+          <div className="flex gap-4 mt-auto" style={{ paddingLeft: "48px", paddingBottom: "48px" }}>
             <a href="#" className="hover:opacity-60 transition-opacity" style={{ opacity: 0.35 }} aria-label="Twitter">
               <Twitter size={16} strokeWidth={1.6} />
             </a>
@@ -158,13 +175,14 @@ export default function App() {
 
         {/* Main content */}
         <main style={{ flex: 1, minWidth: 0 }}>
-          <section id="about" className="py-20 px-12 min-h-screen">
+          <section id="about" style={{ padding: "80px 56px", minHeight: "100vh", display: "flex", alignItems: "flex-start" }}>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+              style={{ width: "100%" }}
             >
-              <div style={{ maxWidth: "560px" }}>
+              <div style={{ maxWidth: "520px" }}>
                 <p className="mb-5" style={{ fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.4 }}>
                   Builder. Immigrant. Host. Eater.
                 </p>
@@ -185,7 +203,7 @@ export default function App() {
             </motion.div>
           </section>
 
-          <section id="projects" className="py-20 px-12 min-h-screen" style={{ borderTop: "1px solid var(--border)" }}>
+          <section id="projects" style={{ padding: "80px 56px", minHeight: "100vh", borderTop: "1px solid var(--border)" }}>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -211,9 +229,10 @@ export default function App() {
                         style={{ borderBottom: "1px solid var(--border)" }}
                       >
                         <a
-                          href={project.url}
+                          href={project.url === "gallery" ? undefined : project.url}
+                          onClick={project.url === "gallery" ? (e) => { e.preventDefault(); setView("gallery"); } : undefined}
                           className="group flex items-start justify-between gap-6 py-5"
-                          style={{ textDecoration: "none", color: "inherit", display: "flex" }}
+                          style={{ textDecoration: "none", color: "inherit", display: "flex", cursor: "pointer" }}
                         >
                           <div className="flex items-start gap-4 min-w-0">
                             <div
@@ -245,6 +264,90 @@ export default function App() {
           </section>
         </main>
       </div>
+
+      {/* ── Gallery overlay ── */}
+      {view === "gallery" && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.35 }}
+          className="hidden md:flex"
+          style={{ position: "fixed", inset: 0, backgroundColor: "var(--background)", zIndex: 100, overflowY: "auto" }}
+        >
+          {/* Sidebar stays visible */}
+          <div style={{ width: "300px", flexShrink: 0, position: "sticky", top: 0, height: "100vh", display: "flex", flexDirection: "column", paddingTop: "48px" }}>
+            <button
+              onClick={() => scrollToSection("About", "about")}
+              className="block overflow-hidden w-full"
+              style={{ padding: "0 48px 32px", flexShrink: 0 }}
+            >
+              <img src={profileImg} alt="Ying Dong" className="w-full object-cover" style={{ borderRadius: "6px", display: "block" }} />
+            </button>
+            <nav className="flex flex-col gap-1" style={{ paddingLeft: "48px" }}>
+              {NAV_LINKS.map(({ label, icon: Icon, id }) => (
+                <button key={label} onClick={() => scrollToSection(label, id)}
+                  className="flex items-center gap-3 text-left py-2 px-2 rounded"
+                  style={{ opacity: 0.35 }}
+                >
+                  <Icon size={15} strokeWidth={1.6} />
+                  <span style={{ fontSize: "0.8rem", letterSpacing: "0.08em", textTransform: "uppercase" }}>{label}</span>
+                </button>
+              ))}
+            </nav>
+            <div className="flex gap-4 mt-auto" style={{ paddingLeft: "48px", paddingBottom: "48px" }}>
+              <a href="#" style={{ opacity: 0.35 }} aria-label="Twitter"><Twitter size={16} strokeWidth={1.6} /></a>
+              <a href="#" style={{ opacity: 0.35 }} aria-label="LinkedIn"><Linkedin size={16} strokeWidth={1.6} /></a>
+            </div>
+          </div>
+
+          {/* Gallery content */}
+          <div style={{ flex: 1, minWidth: 0, padding: "80px 48px" }}>
+            <button
+              onClick={() => setView("main")}
+              className="flex items-center gap-2 mb-12 hover:opacity-60 transition-opacity"
+              style={{ fontSize: "0.75rem", letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.4, background: "none", border: "none", cursor: "pointer" }}
+            >
+              <ArrowLeft size={13} strokeWidth={1.6} /> Back to projects
+            </button>
+
+            <p style={{ fontSize: "0.72rem", letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.4, marginBottom: "6px" }}>
+              Photographs of People Cooking
+            </p>
+            <p style={{ fontSize: "14px", opacity: 0.5, lineHeight: 1.6, marginBottom: "56px", maxWidth: "600px" }}>
+              An ongoing project documenting the quiet intimacy of people in their kitchens.
+            </p>
+
+            <div style={{ columns: "2", columnGap: "24px" }}>
+              {GALLERY_PHOTOS.map((photo, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
+                  style={{ breakInside: "avoid", marginBottom: "24px" }}
+                >
+                  <div style={{ overflow: "hidden", borderRadius: "4px", backgroundColor: "var(--muted)" }}>
+                    <img
+                      src={photo.url}
+                      alt={photo.caption}
+                      style={{ width: "100%", display: "block", objectFit: "cover" }}
+                    />
+                  </div>
+                  <div style={{ marginTop: "10px", paddingBottom: "4px" }}>
+                    <p style={{ fontSize: "11px", letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.35, marginBottom: "4px" }}>
+                      {photo.caption}
+                    </p>
+                    <p style={{ fontSize: "13px", opacity: 0.55, lineHeight: 1.6 }}>
+                      {photo.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+      )}
 
       {/* ── Mobile content ── */}
       <div className="md:hidden" style={{ paddingTop: "61px" }}>
