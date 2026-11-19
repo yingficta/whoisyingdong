@@ -1,0 +1,83 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="800" fill="#DCE7E5"/>
+  <rect width="900" height="800" fill="#EEF3F0"/>
+  <path d="M0 494L451 254L900 494V800H0V494Z" fill="#C9D8CC"/>
+  <path d="M89 558L451 365L811 558L451 750L89 558Z" fill="#D9C4A3"/>
+  <g stroke="#B7A184" stroke-width="2" opacity=".7">
+    <path d="M161 520L522 713"/>
+    <path d="M233 481L594 674"/>
+    <path d="M305 443L666 636"/>
+    <path d="M377 404L738 597"/>
+    <path d="M161 597L522 404"/>
+    <path d="M233 636L594 443"/>
+    <path d="M305 674L666 481"/>
+    <path d="M377 713L738 520"/>
+  </g>
+  <g>
+    <ellipse cx="330" cy="523" rx="58" ry="26" fill="#365F47" opacity=".18"/>
+    <path d="M330 525V417" stroke="#4A6D50" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="330" cy="408" r="62" fill="#557A59"/>
+    <circle cx="292" cy="430" r="40" fill="#6B8E61"/>
+    <circle cx="370" cy="432" r="46" fill="#416B4F"/>
+    <circle cx="346" cy="380" r="42" fill="#789868"/>
+    <circle cx="313" cy="394" r="9" fill="#E8D4CE"/>
+    <circle cx="353" cy="422" r="10" fill="#DDA9A2"/>
+    <circle cx="374" cy="397" r="8" fill="#F0DDD6"/>
+    <circle cx="328" cy="448" r="7" fill="#C98787"/>
+  </g>
+  <g>
+    <ellipse cx="541" cy="585" rx="52" ry="23" fill="#365F47" opacity=".18"/>
+    <path d="M541 585V501" stroke="#4A6D50" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="541" cy="492" r="52" fill="#446D52"/>
+    <circle cx="510" cy="510" r="35" fill="#6F8F62"/>
+    <circle cx="572" cy="513" r="38" fill="#557A59"/>
+    <circle cx="552" cy="470" r="35" fill="#7D9A6C"/>
+    <circle cx="525" cy="483" r="8" fill="#F0DDD6"/>
+    <circle cx="560" cy="500" r="9" fill="#DDA9A2"/>
+    <circle cx="578" cy="484" r="7" fill="#E8D4CE"/>
+  </g>
+  <g>
+    <ellipse cx="543" cy="417" rx="43" ry="19" fill="#365F47" opacity=".18"/>
+    <path d="M543 418V354" stroke="#4A6D50" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="543" cy="347" r="43" fill="#6B8E61"/>
+    <circle cx="518" cy="360" r="28" fill="#557A59"/>
+    <circle cx="568" cy="362" r="30" fill="#416B4F"/>
+    <circle cx="551" cy="329" r="28" fill="#789868"/>
+  </g>
+  <g fill="#F8F7F2" stroke="#A6B4AC">
+    <rect x="34" y="32" width="120" height="52" rx="8"/>
+    <rect x="162" y="32" width="120" height="52" rx="8"/>
+    <rect x="298" y="32" width="142" height="52" rx="8"/>
+  </g>
+  <g fill="#385149" font-family="Arial, sans-serif" font-size="18">
+    <text x="76" y="65">3D</text>
+    <text x="198" y="65">Top</text>
+    <text x="331" y="65">+ Plant</text>
+  </g>
+  <path d="M841 78L854 44L867 78L854 70L841 78Z" fill="#C96C54"/>
+  <text x="849" y="37" fill="#385149" font-family="Arial, sans-serif" font-size="18">N</text>
+  <rect x="900" width="300" height="800" fill="#F7F6F1"/>
+  <text x="948" y="72" fill="#819087" font-family="Arial, sans-serif" font-size="15" letter-spacing="2">MYGARDEN · BED</text>
+  <text x="948" y="123" fill="#283A33" font-family="Arial, sans-serif" font-size="34">Rose bed</text>
+  <text x="948" y="158" fill="#78857E" font-family="Arial, sans-serif" font-size="16">Cambridge · 18 plants</text>
+  <line x1="948" y1="201" x2="1152" y2="201" stroke="#D8DCD7"/>
+  <text x="948" y="246" fill="#283A33" font-family="Arial, sans-serif" font-size="20">Plants</text>
+  <g font-family="Arial, sans-serif">
+    <circle cx="966" cy="292" r="12" fill="#557A59"/>
+    <text x="992" y="299" fill="#3D4A44" font-size="17">Shrub rose</text>
+    <circle cx="966" cy="340" r="12" fill="#789868"/>
+    <text x="992" y="347" fill="#3D4A44" font-size="17">Hydrangea</text>
+    <circle cx="966" cy="388" r="12" fill="#446D52"/>
+    <text x="992" y="395" fill="#3D4A44" font-size="17">Boxwood</text>
+    <circle cx="966" cy="436" r="12" fill="#A6B47B"/>
+    <text x="992" y="443" fill="#3D4A44" font-size="17">Ornamental grass</text>
+  </g>
+  <line x1="948" y1="484" x2="1152" y2="484" stroke="#D8DCD7"/>
+  <text x="948" y="531" fill="#819087" font-family="Arial, sans-serif" font-size="14" letter-spacing="1.5">SUN POSITION</text>
+  <path d="M948 579H1152" stroke="#C7CEC9" stroke-width="6" stroke-linecap="round"/>
+  <path d="M948 579H1068" stroke="#C99D51" stroke-width="6" stroke-linecap="round"/>
+  <circle cx="1068" cy="579" r="11" fill="#F7F6F1" stroke="#C99D51" stroke-width="4"/>
+  <text x="948" y="621" fill="#78857E" font-family="Arial, sans-serif" font-size="15">November 18 · 2:35 PM</text>
+  <rect x="948" y="680" width="204" height="54" rx="7" fill="#385149"/>
+  <text x="993" y="714" fill="#F7F6F1" font-family="Arial, sans-serif" font-size="17">View garden</text>
+</svg>
