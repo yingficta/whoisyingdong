@@ -116,7 +116,7 @@ function SnapPreview({ onShowMore }: { onShowMore: () => void }) {
           <button
             key={photo.url}
             onClick={onShowMore}
-            className="group overflow-hidden flex-shrink-0 w-[240px] max-w-full h-[160px] md:w-[288px] md:h-[192px]"
+            className="group overflow-hidden flex-shrink-0 w-full aspect-[3/2] md:w-[480px] md:h-[320px] md:aspect-auto"
             style={{ borderRadius: "4px", backgroundColor: "var(--muted)" }}
             aria-label={`Open Snap gallery: ${photo.description}`}
           >
@@ -278,13 +278,13 @@ export default function App() {
                 <h1 className="mb-6" style={{ fontSize: "16px", fontWeight: 400, lineHeight: 1.65, color: "#3a3a3a" }}>
                   Hi, I'm Ying Dong.
                   <br /><br />
-                  Building things is fun. It’s the process of figuring things out. I start with a question, look for an answer, put a few things together, change what doesn’t work, and come back tomorrow to make it a little better. After a thousand attempts, one day it’s something I can publish online.
+                  Building things is fun. It’s a process of figuring things out. I build a draft, change what doesn’t work, and come back tomorrow to make it better. After a thousand attempts, it’s something I can publish.
                   <br /><br />
-                  Right now I’m building 3D models with MapAnything. I’m also exploring which words and sentence structures make writing fun for kids in Ficta.
+                  Right now: 3D models with MapAnything. And in Ficta, I’m testing which words and sentences make writing fun for kids.
                   <br /><br />
-                  Writing well is hard, and as a non-native speaker, I’m slow at it. But the desire to tell stories always wins. I recently launched a newsletter for families new to the city.
+                  I’m not a fast writer. But the desire to tell stories wins. So I started a newsletter for families new to the city.
                   <br /><br />
-                  Previously, I was a PM at Superpedestrian and TripAdvisor, and a data scientist at Twitter.
+                  Before this: PM at Superpedestrian and TripAdvisor. Data scientist at Twitter.
                 </h1>
                 <p style={{ fontSize: "0.875rem", opacity: 0.55, lineHeight: 1.8 }}>
                   Reach out at{" "}
@@ -335,12 +335,12 @@ export default function App() {
                           className="group flex items-start justify-between gap-6 py-5"
                           style={{ textDecoration: "none", color: "inherit", display: "flex", cursor: "pointer" }}
                         >
-                          <div className="flex items-stretch gap-4 min-w-0">
+                          <div className={`flex flex-1 items-stretch gap-4 min-w-0 ${(id === "things-i-create" || id === "write") ? "flex-col xl:flex-row xl:gap-6" : ""}`}>
                             <div
                               className="flex-shrink-0 overflow-hidden"
                               style={{
-                                width: (id === "things-i-create" || id === "write") ? "288px" : "largeThumbnail" in project ? "144px" : "72px",
-                                height: (id === "things-i-create" || id === "write") ? "192px" : "largeThumbnail" in project ? "96px" : "48px",
+                                width: (id === "things-i-create" || id === "write") ? "min(480px, 100%)" : "largeThumbnail" in project ? "144px" : "72px",
+                                height: (id === "things-i-create" || id === "write") ? "320px" : "largeThumbnail" in project ? "96px" : "48px",
                                 borderRadius: "4px",
                                 backgroundColor: "var(--muted)",
                               }}
@@ -361,7 +361,7 @@ export default function App() {
                                 <img src={project.image} alt="" className="w-full h-full object-cover" />
                               )}
                             </div>
-                            <div className="min-w-0 flex flex-col">
+                            <div className="flex-1 min-w-0 flex flex-col">
                               <p
                                 className="group-hover:opacity-60 transition-opacity"
                                 style={{ fontSize: "15px", fontWeight: 500, lineHeight: 1.4, marginBottom: "4px" }}
@@ -484,13 +484,13 @@ export default function App() {
             <h1 className="mb-6" style={{ fontSize: "16px", fontWeight: 400, lineHeight: 1.65, color: "#3a3a3a" }}>
               Hi, I'm Ying Dong.
               <br /><br />
-              Building things is fun. It’s the process of figuring things out. I start with a question, look for an answer, put a few things together, change what doesn’t work, and come back tomorrow to make it a little better. After a thousand attempts, one day it’s something I can publish online.
+              Building things is fun. It’s a process of figuring things out. I build a draft, change what doesn’t work, and come back tomorrow to make it better. After a thousand attempts, it’s something I can publish.
               <br /><br />
-              Right now I’m building 3D models with MapAnything. I’m also exploring which words and sentence structures make writing fun for kids in Ficta.
+              Right now: 3D models with MapAnything. And in Ficta, I’m testing which words and sentences make writing fun for kids.
               <br /><br />
-              Writing well is hard, and as a non-native speaker, I’m slow at it. But the desire to tell stories always wins. I recently launched a newsletter for families new to the city.
+              I’m not a fast writer. But the desire to tell stories wins. So I started a newsletter for families new to the city.
               <br /><br />
-              Previously, I was a PM at Superpedestrian and TripAdvisor, and a data scientist at Twitter.
+              Before this: PM at Superpedestrian and TripAdvisor. Data scientist at Twitter.
             </h1>
             <p style={{ fontSize: "0.875rem", opacity: 0.55, lineHeight: 1.8 }}>
               Reach out at{" "}
@@ -527,12 +527,13 @@ export default function App() {
                     className="group flex items-start justify-between gap-4 py-5"
                     style={{ borderBottom: "1px solid var(--border)", textDecoration: "none", color: "inherit", display: "flex" }}
                   >
-                    <div className={`flex items-stretch gap-3 min-w-0 ${(id === "things-i-create" || id === "write") ? "flex-col" : ""}`}>
+                    <div className={`flex flex-1 items-stretch gap-3 min-w-0 ${(id === "things-i-create" || id === "write") ? "flex-col" : ""}`}>
                       <div
                         className="flex-shrink-0 overflow-hidden"
                         style={{
-                          width: (id === "things-i-create" || id === "write") ? "min(240px, 100%)" : "largeThumbnail" in project ? "120px" : "60px",
-                          height: (id === "things-i-create" || id === "write") ? "160px" : "largeThumbnail" in project ? "80px" : "40px",
+                          width: (id === "things-i-create" || id === "write") ? "100%" : "largeThumbnail" in project ? "120px" : "60px",
+                          height: (id === "things-i-create" || id === "write") ? "auto" : "largeThumbnail" in project ? "80px" : "40px",
+                          aspectRatio: (id === "things-i-create" || id === "write") ? "3 / 2" : undefined,
                           borderRadius: "4px",
                           backgroundColor: "var(--muted)",
                         }}
@@ -553,7 +554,7 @@ export default function App() {
                           <img src={project.image} alt="" className="w-full h-full object-cover" />
                         )}
                       </div>
-                      <div className="min-w-0 flex flex-col">
+                      <div className="flex-1 min-w-0 flex flex-col">
                         <p style={{ fontSize: "14px", fontWeight: 500, lineHeight: 1.4, marginBottom: "3px" }}>{project.title}</p>
                         <p style={{ fontSize: "12px", opacity: 0.45, lineHeight: 1.55 }}>{project.description}</p>
                         {"date" in project && (
