@@ -12,6 +12,9 @@ import mapOfVerbs from "../imports/map-of-verbs.png";
 import snap3 from "../imports/snap-3.png";
 import snap4 from "../imports/snap-4.png";
 import snap5 from "../imports/snap-5.png";
+import snapMachuPicchu from "../imports/snap-machu-picchu.png";
+import snapLakeTiticaca from "../imports/snap-lake-titicaca.png";
+import snapNazcaLines from "../imports/snap-nazca-lines.png";
 import { User, FolderOpen, PenLine, Images, Twitter, Linkedin, ArrowUpRight, Menu, X, ArrowLeft } from "lucide-react";
 
 const GALLERY_PHOTOS = [
@@ -26,9 +29,9 @@ const GALLERY_PHOTOS = [
     description: "On the road across open grassland.",
   },
   {
-    url: snap4,
-    caption: "2026",
-    description: "Camp beneath a field of stars.",
+    url: snapLakeTiticaca,
+    caption: "Lake Titicaca",
+    description: "Spinning yarn on a stone arch above the lake.",
   },
   {
     url: cooking1,
@@ -39,6 +42,21 @@ const GALLERY_PHOTOS = [
     url: cooking2,
     caption: "2026",
     description: "Glazing buns on an outdoor griddle.",
+  },
+  {
+    url: snapMachuPicchu,
+    caption: "Machu Picchu",
+    description: "Reading the map above the ruins.",
+  },
+  {
+    url: snap4,
+    caption: "2026",
+    description: "Camp beneath a field of stars.",
+  },
+  {
+    url: snapNazcaLines,
+    caption: "Nazca Lines",
+    description: "The condor geoglyph, seen from the air.",
   },
 ];
 
@@ -112,7 +130,7 @@ function SnapPreview({ onShowMore }: { onShowMore: () => void }) {
   return (
     <div>
       <div className="flex flex-wrap gap-3">
-        {GALLERY_PHOTOS.slice(0, 5).map((photo) => (
+        {GALLERY_PHOTOS.slice(0, 6).map((photo) => (
           <button
             key={photo.url}
             onClick={onShowMore}
