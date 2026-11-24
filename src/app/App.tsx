@@ -300,9 +300,9 @@ export default function App() {
                   <br /><br />
                   Right now: 3D models with MapAnything. And in Ficta, I’m testing which words and sentences make writing fun for kids.
                   <br /><br />
-                  I’m not a fast writer. But the desire to tell stories wins. So I started a newsletter for families new to the city.
-                  <br /><br />
                   Before this: PM at Superpedestrian and TripAdvisor. Data scientist at Twitter.
+                  <br /><br />
+                  I’ve run five marathons and visited six continents.
                 </h1>
                 <p style={{ fontSize: "0.875rem", opacity: 0.55, lineHeight: 1.8 }}>
                   Reach out at{" "}
